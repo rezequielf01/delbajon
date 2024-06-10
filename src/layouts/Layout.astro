@@ -22,6 +22,7 @@ const { title } = Astro.props;
 
 		<!-- SCRIPTS -->
 		<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 		<script	script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -31,14 +32,21 @@ const { title } = Astro.props;
 		<script>
 			let menuIcon = document.getElementById("menuIcon");
 			let subNav = document.getElementById("subNav");
-	
-				
+		
 			menuIcon.addEventListener("click", function(){
 				subNav.classList.toggle("subnav-off");
 			});
 				
-			
-	
+		</script>
+
+		<script>
+			let cartIcon = document.getElementById("cartIcon");
+			let carritoLista = document.getElementById("carrito");
+
+			cartIcon.addEventListener("click", function(){
+				carritoLista.classList.toggle("carrito-off");
+			});	
+
 		</script>
 
 	</body>

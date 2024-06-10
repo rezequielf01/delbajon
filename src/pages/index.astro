@@ -15,15 +15,15 @@ import Card from '../components/Card.astro';
 
 			<div class="hero-carousel">
 
-				<div class="hero-carousel-wrapp">
-          <img class="hero-carousel__img" src="/images/hamburguesa.jpg" alt="Del Bajon">
-        </div>
-
-				<div class="hero-carousel-wrapp">
+        <div class="hero-carousel-wrapp">
           <div class="hero-carousel__img2">
             <h1>Del Bajón</h1>
             <p>¡Sabores de otro planeta!</p>
           </div>
+        </div>
+
+				<div class="hero-carousel-wrapp">
+          <img class="hero-carousel__img" src="/images/hamburguesa.jpg" alt="Del Bajon">
         </div>
 
 			</div>
@@ -38,54 +38,53 @@ import Card from '../components/Card.astro';
           <div class="producto" data-id="1" data-nombre="Burguer simple" data-precio="3500">
               <div class="producto-img">
                 <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
+                <span class="producto-desc__span">$3.500</span>
               </div>
               <div class="producto-desc">
                 <h3 class="producto-desc__h3">Burguer simple</h3>
                 <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
               </div>
-              <button class="agregar">Agregar al Carrito</button>
+              <button class="agregar agregarBtn">Agregar</button>
           </div>
 
           <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500">
             <div class="producto-img">
               <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
+              <span class="producto-desc__span">$4.500</span>
             </div>
             <div class="producto-desc">
               <h3 class="producto-desc__h3">Burguer completa</h3>
               <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
             </div>
-            <button class="agregar">Agregar al Carrito</button>
+            <button class="agregar agregarBtn">Agregar</button>
           </div>
 
           <div class="producto" data-id="3" data-nombre="Burguer super completa" data-precio="4500">
             <div class="producto-img">
               <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
+              <span class="producto-desc__span">$5.000</span>
             </div>
             <div class="producto-desc">
               <h3 class="producto-desc__h3">Burguer super completa</h3>
               <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
             </div>
-            <button class="agregar">Agregar al Carrito</button>
+            <button class="agregar agregarBtn">Agregar</button>
           </div>
 
           <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500">
             <div class="producto-img">
               <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
+              <span class="producto-desc__span">$3.500</span>
             </div>
             <div class="producto-desc">
               <h3 class="producto-desc__h3">Burguer completa</h3>
               <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
             </div>
-            <button class="agregar">Agregar al Carrito</button>
+            <button class="agregar agregarBtn">Agregar</button>
           </div>
 
       </div>
 
-      <!-- <div id="carrito">
-        <ul id="lista-carrito"></ul>
-        <p>Total: $<span id="total">0</span></p>
-        <button id="finalizar-compra">Finalizar Compra</button>
-      </div> -->
     </section>
 
 	</main>
@@ -237,13 +236,24 @@ import Card from '../components/Card.astro';
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   .producto-img{
     width: 100%;
     height: 50%;
+    position: relative;
+    z-index: 50;
+  }
+  .producto-desc__span{
+    font-size: .8rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: orange;
+    padding: 5px 8px;
   }
   .producto-img__img{
     width: 100%;
@@ -262,11 +272,27 @@ import Card from '../components/Card.astro';
     font-size: .8rem;
     line-height: normal;
   }
-  .producto-desc__span{
-    font-size: .8rem;
-  }
   .producto-desc__p{
     font-size: .75rem;
     line-height: normal;
+  }
+  .agregarBtn{
+    width: 80%;
+    height: 30px;
+    background: orange;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .agregarBtn i{
+    font-size: 1rem;
+  }
+  .carrito-lista-off{
+    display: none;
   }
 </style>
