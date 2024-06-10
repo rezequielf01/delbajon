@@ -35,7 +35,7 @@ import Card from '../components/Card.astro';
 
         <div id="productos">
           <!-- Lista de productos -->
-          <div class="producto" data-id="1" data-nombre="Burguer simple" data-precio="3500">
+          <div class="producto" data-id="1" data-nombre="Burguer simple" data-precio="3500" data-srcImg="/images/hamburguesa.jpg">
               <div class="producto-img">
                 <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
                 <span class="producto-desc__span">$3.500</span>
@@ -47,9 +47,9 @@ import Card from '../components/Card.astro';
               <button class="agregar agregarBtn">Agregar</button>
           </div>
 
-          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500">
+          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
             <div class="producto-img">
-              <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
+              <img class="producto-img__img" src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
               <span class="producto-desc__span">$4.500</span>
             </div>
             <div class="producto-desc">
@@ -59,7 +59,7 @@ import Card from '../components/Card.astro';
             <button class="agregar agregarBtn">Agregar</button>
           </div>
 
-          <div class="producto" data-id="3" data-nombre="Burguer super completa" data-precio="4500">
+          <div class="producto" data-id="3" data-nombre="Burguer super completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
             <div class="producto-img">
               <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
               <span class="producto-desc__span">$5.000</span>
@@ -71,7 +71,7 @@ import Card from '../components/Card.astro';
             <button class="agregar agregarBtn">Agregar</button>
           </div>
 
-          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500">
+          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
             <div class="producto-img">
               <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
               <span class="producto-desc__span">$3.500</span>
@@ -101,11 +101,28 @@ import Card from '../components/Card.astro';
                 const boton = event.target;
                 const producto = boton.parentElement;
                 const nombre = producto.getAttribute('data-nombre');
+                const img = producto.getAttribute('data-srcImg');
                 const precio = parseInt(producto.getAttribute('data-precio'));
 
                 // Crear elemento de lista para el carrito
                 const itemCarrito = document.createElement('li');
-                itemCarrito.textContent = `${nombre} - $${precio}`;
+                itemCarrito.innerHTML = `
+                <div class="cart-card" style="display:flex; gap: 5px;">
+                  <img class="cart-card__img" src="${img}" width="125px"></img>
+                  <div class="cart-desc" style="width:100%">
+                    <h3 style="font-size:.9rem;">${nombre}</h3>
+                    <span style="font-size:.9rem;">$${precio}</span>
+                    <div style="display: flex; width:100%; align-items:center; justify-content: flex-start; gap: 10px;">
+                      <p style="font-size:.9rem;">Cantidad: </p>
+                      <div style="display:flex; gap: 5px; align-items:center; justify-content: center;">
+                        <button style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">-</button>
+                        <span>1</span>
+                        <button style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                `;
 
                 // Agregar elemento a la lista del carrito
                 listaCarrito.appendChild(itemCarrito);
@@ -171,7 +188,7 @@ import Card from '../components/Card.astro';
 
 <style>
 	main {
-		margin: 0 auto 100px;
+		margin: 0 auto 80px;
 		width: 100%;
 		color: white;
 		font-size: 20px;
@@ -252,7 +269,7 @@ import Card from '../components/Card.astro';
     top: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.8);
-    color: orange;
+    color: rgb(250, 174, 34);
     padding: 5px 8px;
   }
   .producto-img__img{
@@ -279,7 +296,7 @@ import Card from '../components/Card.astro';
   .agregarBtn{
     width: 80%;
     height: 30px;
-    background: orange;
+    background: rgb(250, 174, 34);
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
@@ -291,6 +308,14 @@ import Card from '../components/Card.astro';
   
   .agregarBtn i{
     font-size: 1rem;
+  }
+
+  /* CARRITO DE COMPRAS */
+  .cart-card{
+    width: 100%;
+  }
+  .card-desc{
+    width: 100%;
   }
   .carrito-lista-off{
     display: none;

@@ -36,11 +36,12 @@
 			</li>
 		</ul>
 
+		<!-- CARRITO DE COMPRAS -->
 		<div id="carrito">
 			<ul class="carrito-ul" id="lista-carrito">
 				
 			</ul>
-			<div style="display:flex; width:100%; align-items: center; justify-content: space-around;">
+			<div style="display:flex; width:100%; height: 10% ; align-items: center; justify-content: space-around;">
 				<p>Total: $<span id="total">0</span></p>
 				<button id="vaciarCarrito">Vaciar carrito</button>
 				<button id="finalizar-compra">Finalizar Compra</button>
@@ -56,8 +57,8 @@
 
 	.header{
 		width: 100%;
-		height: 75px;
-		background: white;
+		height: 60px;
+		background: rgb(250, 174, 34);
 		position: fixed;
 		bottom: 0;
 		z-index: 1000;
@@ -72,7 +73,7 @@
 		
 	.nav-links-container{
 		width: 100%;
-		height: 80px;
+		height: 100%;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 		display: flex;
 		align-items: center;
@@ -81,7 +82,8 @@
 		z-index: 300;
 		bottom: 0;
 		border-radius: 20px 20px 0 0;
-		background: white;
+		background: rgb(250, 174, 34);
+		border: solid 1px rgba(0, 0, 0, 0.3);
 	}
 
 	.menu {
@@ -162,10 +164,10 @@
 	
 	#carrito{
 		width: 100%;
-		height: 70vh;
-		background: red;
+		height: 90vh;
+		background: white;
 		position: fixed;
-		bottom: 75px;
+		bottom: 60px;
 		left: -400px;
 		z-index: 800;
 		margin: auto;
@@ -179,8 +181,10 @@
 	.carrito-ul{
 		width: 100%;
 		min-height: 90%;
-		background: green;
-		padding: 5px
+		padding: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
 
 	.carrito-off{
