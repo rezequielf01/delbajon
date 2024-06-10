@@ -1,0 +1,44 @@
+---
+interface Props {
+	nombre: string;
+	descripcion: string;
+	precio: number;
+	srcImg: string;
+}
+
+const { nombre, descripcion, precio, srcImg } = Astro.props;
+---
+
+<li class="item">
+	<div class="card-img">
+		<img src={srcImg} width="50%" alt="Hamburguesa simple del bajón">
+	</div>
+	<div class="card-desc">
+		<span>${precio}</span>
+		<p>{descripcion}</p>
+		<button onclick="agregarAlCarrito('{nombre}')">Agregar al Carrito</button>
+	</div>
+</li>
+
+<script>
+var carrito = [];
+
+function agregarAlCarrito(item) {
+	carrito.push(item);
+	mostrarItemsEnCarrito();
+}
+
+function mostrarItemsEnCarrito() {
+	var itemsContainer = document.getElementById('items-container');
+	itemsContainer.innerHTML = '';
+
+	carrito.forEach(function(item) {
+		var itemElement = document.createElement('div');
+		itemElement.textContent = item;
+		itemsContainer.appendChild(itemElement);
+	});
+}    
+</script>
+<style>
+	
+</style>
