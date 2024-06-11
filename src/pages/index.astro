@@ -1,20 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Card from "../components/Card.astro";
+import toastr from 'toastr';
 ---
 
 <Layout title="Del Bajon - Pedidos en linea">
+  <Header />
 
-	<Header/>
-
-	<main>
-		
+  <main>
     <!-- CAROUSEL -->
-		<div class="carousel-container">
-
-			<div class="hero-carousel">
-
+    <div class="carousel-container">
+      <div class="hero-carousel">
         <div class="hero-carousel-wrapp">
           <div class="hero-carousel__img2">
             <h1>Del Bajón</h1>
@@ -22,203 +19,291 @@ import Card from '../components/Card.astro';
           </div>
         </div>
 
-				<div class="hero-carousel-wrapp">
-          <img class="hero-carousel__img" src="/images/hamburguesa.jpg" alt="Del Bajon">
+        <div class="hero-carousel-wrapp">
+          <img
+            class="hero-carousel__img"
+            src="/images/hamburguesa.jpg"
+            alt="Del Bajon"
+          />
         </div>
-
-			</div>
-
-		</div>
+      </div>
+    </div>
 
     <!-- MENU SECTION -->
     <section class="menu-container">
-
-        <div id="productos">
-          <!-- Lista de productos -->
-          <div class="producto" data-id="1" data-nombre="Burguer simple" data-precio="3500" data-srcImg="/images/hamburguesa.jpg">
-              <div class="producto-img">
-                <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
-                <span class="producto-desc__span">$3.500</span>
-              </div>
-              <div class="producto-desc">
-                <h3 class="producto-desc__h3">Burguer simple</h3>
-                <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
-              </div>
-              <button class="agregar agregarBtn">Agregar</button>
+      <div id="productos">
+        <!-- Lista de productos -->
+        <div
+          class="producto"
+          data-id="1"
+          data-nombre="Burguer simple"
+          data-precio="3500"
+          data-srcImg="/images/hamburguesa.jpg"
+        >
+          <div class="producto-img">
+            <img
+              class="producto-img__img"
+              src="/images/hamburguesa.jpg"
+              alt="Hamburguesa simple del bajon"
+            />
+            <span class="producto-desc__span">$3.500</span>
           </div>
-
-          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
-            <div class="producto-img">
-              <img class="producto-img__img" src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
-              <span class="producto-desc__span">$4.500</span>
-            </div>
-            <div class="producto-desc">
-              <h3 class="producto-desc__h3">Burguer completa</h3>
-              <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
-            </div>
-            <button class="agregar agregarBtn">Agregar</button>
+          <div class="producto-desc">
+            <h3 class="producto-desc__h3">Burguer simple</h3>
+            <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
           </div>
+          <button class="agregar agregarBtn" id="addCart">Agregar</button>
+        </div>
 
-          <div class="producto" data-id="3" data-nombre="Burguer super completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
-            <div class="producto-img">
-              <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
-              <span class="producto-desc__span">$5.000</span>
-            </div>
-            <div class="producto-desc">
-              <h3 class="producto-desc__h3">Burguer super completa</h3>
-              <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
-            </div>
-            <button class="agregar agregarBtn">Agregar</button>
+        <div
+          class="producto"
+          data-id="2"
+          data-nombre="Burguer completa"
+          data-precio="4500"
+          data-srcImg="/images/hamburguesa.jpg"
+        >
+          <div class="producto-img">
+            <img
+              class="producto-img__img"
+              src="/images/hamburguesa.jpg"
+              alt="Hamburguesa simple del bajon"
+            />
+            <span class="producto-desc__span">$4.500</span>
           </div>
-
-          <div class="producto" data-id="2" data-nombre="Burguer completa" data-precio="4500" data-srcImg="/images/hamburguesa.jpg">
-            <div class="producto-img">
-              <img class="producto-img__img"src="/images/hamburguesa.jpg" alt="Hamburguesa simple del bajon">
-              <span class="producto-desc__span">$3.500</span>
-            </div>
-            <div class="producto-desc">
-              <h3 class="producto-desc__h3">Burguer completa</h3>
-              <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
-            </div>
-            <button class="agregar agregarBtn">Agregar</button>
+          <div class="producto-desc">
+            <h3 class="producto-desc__h3">Burguer completa</h3>
+            <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
           </div>
+          <button class="agregar agregarBtn" id="addCart">Agregar</button>
+        </div>
 
+        <div
+          class="producto"
+          data-id="3"
+          data-nombre="Burguer super completa"
+          data-precio="4500"
+          data-srcImg="/images/hamburguesa.jpg"
+        >
+          <div class="producto-img">
+            <img
+              class="producto-img__img"
+              src="/images/hamburguesa.jpg"
+              alt="Hamburguesa simple del bajon"
+            />
+            <span class="producto-desc__span">$5.000</span>
+          </div>
+          <div class="producto-desc">
+            <h3 class="producto-desc__h3">Burguer super completa</h3>
+            <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
+          </div>
+          <button class="agregar agregarBtn" id="addCart">Agregar</button>
+        </div>
+
+        <div
+          class="producto"
+          data-id="2"
+          data-nombre="Burguer completa"
+          data-precio="4500"
+          data-srcImg="/images/hamburguesa.jpg"
+        >
+          <div class="producto-img">
+            <img
+              class="producto-img__img"
+              src="/images/hamburguesa.jpg"
+              alt="Hamburguesa simple del bajon"
+            />
+            <span class="producto-desc__span">$3.500</span>
+          </div>
+          <div class="producto-desc">
+            <h3 class="producto-desc__h3">Burguer completa</h3>
+            <p class="producto-desc__p">1 Medallón + queso o cheddar + papas</p>
+          </div>
+          <button class="agregar agregarBtn" id="addCart">Agregar</button>
+        </div>
       </div>
-
     </section>
-
-	</main>
-	
+  </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-            // Obtener elementos relevantes
-            const listaCarrito = document.getElementById('lista-carrito');
-            const totalCarrito = document.getElementById('total');
+    document.addEventListener("DOMContentLoaded", function () {
 
-            // Función para agregar un producto al carrito
-            function agregarProducto(event) {
-                const boton = event.target;
-                const producto = boton.parentElement;
-                const nombre = producto.getAttribute('data-nombre');
-                const img = producto.getAttribute('data-srcImg');
-                const precio = parseInt(producto.getAttribute('data-precio'));
+      // Obtener elementos relevantes
+      const listaCarrito = document.getElementById("lista-carrito");
+      const totalCarrito = document.getElementById("total");
 
-                // Crear elemento de lista para el carrito
-                const itemCarrito = document.createElement('li');
-                itemCarrito.innerHTML = `
-                <div class="cart-card" style="display:flex; gap: 5px;">
-                  <img class="cart-card__img" src="${img}" width="125px"></img>
-                  <div class="cart-desc" style="width:100%">
-                    <h3 style="font-size:.9rem;">${nombre}</h3>
-                    <span style="font-size:.9rem;">$${precio}</span>
-                    <div style="display: flex; width:100%; align-items:center; justify-content: flex-start; gap: 10px;">
-                      <p style="font-size:.9rem;">Cantidad: </p>
-                      <div style="display:flex; gap: 5px; align-items:center; justify-content: center;">
-                        <button style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">-</button>
-                        <span>1</span>
-                        <button style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">+</button>
+      // Función para agregar un producto al carrito
+      function agregarProducto(event) {
+        const boton = event.target;
+        const producto = boton.parentElement;
+        var nombre = producto.getAttribute("data-nombre");
+        var id = producto.getAttribute("data-id");
+        var img = producto.getAttribute("data-srcImg");
+        var precio = parseInt(producto.getAttribute("data-precio"));
+
+        // Verificar si el producto ya está en el carrito
+        const productoExistente = listaCarrito.querySelector(
+          `[data-id="${id}"]`
+        );
+        if (productoExistente) {
+          // Obtener la cantidad actual y sumar 1
+          const cantidadActual = parseInt(
+            productoExistente.querySelector(".cantidad").textContent);
+            productoExistente.querySelector(".cantidad").textContent = (cantidadActual + 1).toString();
+            // Mostrar alerta de producto agregado
+           
+        } else {
+          // Crear nuevo elemento de lista para el carrito
+          const itemCarrito = document.createElement("li");
+          itemCarrito.setAttribute("data-id", id);
+          itemCarrito.innerHTML = `
+                    <div class="cart-card" style="display:flex; gap: 5px;">
+                      <img class="cart-card__img" src="${img}" width="125px"></img>
+                      <div class="cart-desc" style="width:100%">
+                        <h3 style="font-size:.9rem;">${nombre}</h3>
+                        <span class="precio" style="font-size:.9rem;">$${precio}</span>
+                        <div style="display: flex; width:100%; align-items:center; justify-content: flex-start; gap: 10px;">
+                          <p style="font-size:.9rem;">Cantidad: </p>
+                          <div style="display:flex; gap: 5px; align-items:center; justify-content: center;">
+                            <button class="disminuir" style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">-</button>
+                            <span class="cantidad">1</span>
+                            <button class="aumentar" style="background: rgb(250, 174, 34); border: none; padding: 8px 10px; border-radius: 3px">+</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                `;
+                    `;
 
-                // Agregar elemento a la lista del carrito
-                listaCarrito.appendChild(itemCarrito);
+          // Agregar elemento a la lista del carrito
+          listaCarrito.appendChild(itemCarrito);
+          
+        }
 
-                // Actualizar total del carrito
-                let total = parseInt(totalCarrito.textContent);
-                // Asegurar que total sea un número válido
-                total = isNaN(total) ? 0 : total;
-                // Sumar el precio del producto al total
-                total += precio;
-                // Actualizar el contenido de totalCarrito.textContent con el total calculado
-                totalCarrito.textContent = total.toString();
-            }
+        // Actualizar total del carrito
+        let total = parseInt(totalCarrito.textContent.replace(/[^\d]/g, ''));
+        // Asegurar que total sea un número válido
+        total = isNaN(total) ? 0 : total;
+        // Sumar el precio del producto al total
+        total += precio;
+        // Actualizar el contenido de totalCarrito.textContent con el total calculado
+        totalCarrito.textContent = total.toLocaleString();
+      }
 
-            // Agregar eventos de clic a los botones "Agregar al Carrito"
-            const botonesAgregar = document.querySelectorAll('.agregar');
-            botonesAgregar.forEach(boton => {
-                boton.addEventListener('click', agregarProducto);
-            });
-        });
+      // Agregar eventos de clic a los botones "Agregar al Carrito"
+      const botonesAgregar = document.querySelectorAll(".agregar");
+      botonesAgregar.forEach((boton) => {
+        boton.addEventListener("click", agregarProducto);
+      });
+    });
+
   </script>
 
-	<script>
-		$('.hero-carousel').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 481,
-      settings: {
-        dots: false,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
-	</script>
+  <script>
+    let notifications = document.querySelector('.notifications');
+			let addCart = document.getElementById('addCart');
+
+			function createToast(type, icon, title, text){
+				let newToast = document.createElement('div');
+				newToast.innerHTML = `
+					<div class="toast ${type}">
+						<div style="color: white ;width:fit-content; displat:flex; align-items: center; justify-content: center;">
+              ${icon}
+            </div>
+						<div class="content">
+							<div class="title" style="display:none;">${title}</div>
+							<span>${text}</span>
+						</div>
+						<i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+					</div>`;
+				notifications.appendChild(newToast);
+				newToast.timeOut = setTimeout(
+					()=>newToast.remove(), 1500
+				)
+			}
+
+			addCart.onclick = function(){
+				let type = 'success';
+				let icon = '<box-icon style="color:white;" name="cart-add"></box-icon>';
+				let title = 'Success';
+				let text = '¡Se sumó al carrito!';
+				createToast(type, icon, title, text);
+			}
+  </script>
+
+  <script>
+    $(".hero-carousel").slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+        {
+          breakpoint: 481,
+          settings: {
+            dots: false,
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ],
+    });
+  </script>
 </Layout>
 
 <style>
-	main {
-		margin: 0 auto 80px;
-		width: 100%;
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.carousel-container{
-		width: 100%;
-		height: 200px;
+  main {
+    margin: 0 auto 80px;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .carousel-container {
+    width: 100%;
+    height: 200px;
     max-height: 200px;
-		border-radius: 10px;
-		margin: 10px auto;
     border-radius: 10px;
-	}
-  .hero-carousel-wrapp{
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+  .hero-carousel-wrapp {
     width: 100%;
     max-height: 200px;
     border-radius: 10px;
     padding: 0 10px;
   }
-  .hero-carousel__img{
+  .hero-carousel__img {
     width: 100%;
     height: 200px;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
-  .hero-carousel__img2{
+  .hero-carousel__img2 {
     width: 100%;
     height: 200px;
     border-radius: 10px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8)), url("/images/hamburguesa.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+      url("/images/hamburguesa.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -226,17 +311,17 @@ import Card from '../components/Card.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column
+    flex-direction: column;
   }
 
   /* MENU */
-  .menu-container{
+  .menu-container {
     display: flex;
     width: 100%;
     height: auto;
-    padding: 0 10px
+    padding: 0 10px;
   }
-  #productos{
+  #productos {
     width: 100%;
     height: auto;
     display: flex;
@@ -245,7 +330,7 @@ import Card from '../components/Card.astro';
     justify-content: flex-start;
     gap: 10px;
   }
-  .producto{
+  .producto {
     width: 47%;
     height: 200px;
     background: white;
@@ -257,14 +342,14 @@ import Card from '../components/Card.astro';
     padding: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-  .producto-img{
+  .producto-img {
     width: 100%;
     height: 50%;
     position: relative;
     z-index: 50;
   }
-  .producto-desc__span{
-    font-size: .8rem;
+  .producto-desc__span {
+    font-size: 0.8rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -272,11 +357,11 @@ import Card from '../components/Card.astro';
     color: rgb(250, 174, 34);
     padding: 5px 8px;
   }
-  .producto-img__img{
+  .producto-img__img {
     width: 100%;
     height: 100%;
   }
-  .producto-desc{
+  .producto-desc {
     width: 100%;
     height: 50%;
     display: flex;
@@ -285,15 +370,15 @@ import Card from '../components/Card.astro';
     justify-content: flex-start;
     color: black;
   }
-  .producto-desc__h3{
-    font-size: .8rem;
+  .producto-desc__h3 {
+    font-size: 0.8rem;
     line-height: normal;
   }
-  .producto-desc__p{
-    font-size: .75rem;
+  .producto-desc__p {
+    font-size: 0.75rem;
     line-height: normal;
   }
-  .agregarBtn{
+  .agregarBtn {
     width: 80%;
     height: 30px;
     background: rgb(250, 174, 34);
@@ -305,19 +390,19 @@ import Card from '../components/Card.astro';
     align-items: center;
     justify-content: space-around;
   }
-  
-  .agregarBtn i{
+
+  .agregarBtn i {
     font-size: 1rem;
   }
 
   /* CARRITO DE COMPRAS */
-  .cart-card{
+  .cart-card {
     width: 100%;
   }
-  .card-desc{
+  .card-desc {
     width: 100%;
   }
-  .carrito-lista-off{
+  .carrito-lista-off {
     display: none;
   }
 </style>
